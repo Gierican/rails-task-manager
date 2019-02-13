@@ -1,5 +1,5 @@
 class TasksController < ApplicationController
-  before_action :set_task
+  before_action :set_task, only: [:show, :edit, :update, :destroy]
 
   def index         # GET /restaurants
     @tasks = Task.all
@@ -21,6 +21,7 @@ class TasksController < ApplicationController
   end
 
   def destroy       # DELETE /restaurants/:id
+    @task.destroy
   end
 
   private
